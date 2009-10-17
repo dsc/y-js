@@ -69,12 +69,12 @@ Instantiating a new instance of Y provides different semantics:
 The types returned by `Y()`.
 
 
-### `Y<T>`
+### Y&lt;T&gt;
 
 	 - end() -> T
 
 
-### `YCollection<K,V>` extends `Y`
+### YCollection&lt;K,V&gt; extends `Y`
 
 Methods of `YCollection` are inherited by most `Y`-types.
 
@@ -111,7 +111,7 @@ Methods of `YCollection` are inherited by most `Y`-types.
 	 - all
 
 
-### `YArray<Int,V>` extends `YCollection`
+### YArray&lt;Int,V&gt; extends YCollection
 
 **Wrapped Array Methods**
 
@@ -120,7 +120,7 @@ These mehods perform the same action as their `Array` counterparts, but instead 
 	 - push, unshift, sort, splice
 
 
-### `YFunction`
+### YFunction
 
 As `Function` cannot be subclassed, calling `Y(fn)` returns you the same function, extended with the methods on `YFunction.prototype`.
 
@@ -130,29 +130,29 @@ As `Function` cannot be subclassed, calling `Y(fn)` returns you the same functio
 	 - g.compose( f ) -> g(f(x))
 
 
-### `YString`
+### YString
 
 	 - startsWith( String ) -> Bool
 	 - endsWith( String ) -> Bool
 	 - strip( String|RegEx ) -> String
 
-### `YNumber`
+### YNumber
 
 TODO
 
-### `YBoolean`
+### YBoolean
 
 TODO
 
-### `YRegExp`
+### YRegExp
 
 TODO
 
-### `YDate`
+### YDate
 
 TODO
 
-### `YGeneric` extends `YObject`
+### YGeneric extends YObject
 
 A type-identifier for foreign types.
 
@@ -162,12 +162,12 @@ A type-identifier for foreign types.
 Serialization to and from URL-encoded KV-pairs.
 
 
-### `YObject<K,V>`
+### YObject&lt;K,V&gt;
 
 	 - toKV() -> String
 
 
-### `YString`
+### YString
 
 	 - toObject = fromKV() -> Object
 
@@ -176,7 +176,7 @@ Serialization to and from URL-encoded KV-pairs.
 
 `Y` includes a JSON serialization library. It is optional to include, but depends on `Y`.
 
-### `Y<T>`
+### Y&lt;T&gt;
 
 	 - toJSON() -> String
 
