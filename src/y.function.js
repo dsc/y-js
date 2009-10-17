@@ -34,7 +34,6 @@ function partial(fn){
 // Collects arguments but ignores context: fn.curry( arg1, arg2, ... ) <-- always executes in `window`
 // Note that curry requires the function be declared with formal arguments,
 // even if it pulls them from the special `arguments` variable.
-Y.curry = curry;
 YFunction.prototype.curry = curry;
 function curry(){
     var args = Y(arguments), 
@@ -48,6 +47,12 @@ function curry(){
     }; 
 }
 
+Y.curry = function(fn){
+    var args = Y(arguments);
+    return curry.apply(args.shift(), args);
+};
+
+
 var fn_name_re = /function\s*([^\(]*)\(/;
 
 /** Returns the declared name of a function. */
@@ -58,7 +63,7 @@ function getName( fn ){
     if ( !isFunction(fn) )
         return fn;
     else
-        return (fn.name || (fn+'').match(fn_name_re)[1]) || '';
+        return (fn.name || fn.toString().match(fn_name_re)[1]) || '';
 }
 
 Y.methodize = methodize;

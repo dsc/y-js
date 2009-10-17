@@ -12,6 +12,7 @@ function toKV(del){
     .join(del !== undefined ? del : "&");
 }
 
+YString.prototype.toObject =
 YString.prototype.fromKV = fromKV;
 function fromKV(del){
     return Y(this.split(del || '&')).reduce(function(acc, pair){
