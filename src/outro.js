@@ -1,0 +1,4 @@
+
+window.Y = Y;
+
+})(window);
